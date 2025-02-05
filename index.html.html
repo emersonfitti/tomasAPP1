@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 24.8.4.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin: 0.79in }
+		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
+		pre { font-family: "Liberation Mono", monospace; font-size: 10pt; background: transparent }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Calculadora de Función&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .container {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        input[type=&quot;number&quot;] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        .precision {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .precision input {
+            width: 50px;
+            padding: 5px;
+            margin-left: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;container&quot;&gt;
+    &lt;h2&gt;Calculadora de Función&lt;/h2&gt;
+    &lt;label for=&quot;x&quot;&gt;Ingrese el valor de x:&lt;/label&gt;
+    &lt;input type=&quot;number&quot; id=&quot;x&quot; step=&quot;any&quot; placeholder=&quot;Valor de x&quot;&gt;
+
+    &lt;label for=&quot;n&quot;&gt;Ingrese el valor de n:&lt;/label&gt;
+    &lt;input type=&quot;number&quot; id=&quot;n&quot; step=&quot;any&quot; placeholder=&quot;Valor de n&quot;&gt;
+
+    &lt;button onclick=&quot;calcular()&quot;&gt;Calcular&lt;/button&gt;
+
+    &lt;div class=&quot;precision&quot;&gt;
+        &lt;label for=&quot;precision&quot;&gt;Precisión:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;precision&quot; value=&quot;3&quot; min=&quot;1&quot; max=&quot;10&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;result&quot; id=&quot;resultado&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    function calcular() {
+        const x = parseFloat(document.getElementById('x').value);
+        const n = parseFloat(document.getElementById('n').value);
+        const precision = parseInt(document.getElementById('precision').value);
+
+        if (isNaN(x) || isNaN(n) || isNaN(precision)) {
+            document.getElementById('resultado').innerText = &quot;Por favor, ingrese valores válidos.&quot;;
+            return;
+        }
+
+        const resultado = Math.pow((2 / (3 + x)), n);
+        document.getElementById('resultado').innerText = `f(${x}) = ${resultado.toPrecision(precision)}`;
+    }
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</body>
+</html>
