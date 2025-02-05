@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Función</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .container {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        .precision {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .precision input {
+            width: 50px;
+            padding: 5px;
+            margin-left: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Calculadora de Función</h2>
+    <label for="x">Ingrese el valor de x:</label>
+    <input type="number" id="x" step="any" placeholder="Valor de x">
+
+    <label for="n">Ingrese el valor de n:</label>
+    <input type="number" id="n" step="any" placeholder="Valor de n">
+
+    <button onclick="calcular()">Calcular</button>
+
+    <div class="precision">
+        <label for="precision">Precisión:</label>
+        <input type="number" id="precision" value="3" min="1" max="10">
+    </div>
+
+    <div class="result" id="resultado"></div>
+</div>
+
+<script>
+    function calcular() {
+        const x = parseFloat(document.getElementById('x').value);
+        const n = parseFloat(document.getElementById('n').value);
+        const precision = parseInt(document.getElementById('precision').value);
+
+        if (isNaN(x) || isNaN(n) || isNaN(precision)) {
+            document.getElementById('resultado').innerText = "Por favor, ingrese valores válidos.";
+            return;
+        }
+
+        const resultado = Math.pow((2 / (3 + x)), n);
+        document.getElementById('resultado').innerText = `f(${x}) = ${resultado.toPrecision(precision)}`;
+    }
+</script>
+
+</body>
+</html>
